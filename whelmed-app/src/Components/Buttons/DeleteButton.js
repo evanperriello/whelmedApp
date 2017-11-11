@@ -5,7 +5,7 @@ import './DeleteButton.css';
 const DeleteButton = (props) =>{
     return (
         <Button bsClass='btn-delete '>
-            x
+            X
         </Button>
     );
 }
