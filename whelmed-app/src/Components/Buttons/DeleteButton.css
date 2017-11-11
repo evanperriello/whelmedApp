@@ -2,11 +2,11 @@
     color: rgb(201, 18, 18);
     font-size:3em;
     font-weight:600;
-    background-color:white;
+    background:none;
     border:none;
     margin-left:-3px;
     padding:0 6px;
-    vertical-align:-12%;
+    vertical-align:-3%;
 }
 .btn-delete:hover {
     color: rgb(155, 16, 16);

@@ -1,0 +1,15 @@
+.list-item-buttons {
+    display:inline;
+}
+.list-item p {
+    display:inline;
+    margin-right:10px;
+    margin-bottom:0;
+    font-size:2em;
+    font-weight:600;
+    padding:0;
+}
+.list-item {
+    border-radius:5px;
+    border:2px rgb(208, 214, 219) solid;
+}

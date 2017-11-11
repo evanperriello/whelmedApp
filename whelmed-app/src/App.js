@@ -4,7 +4,7 @@ import 'react-bootstrap';
 import './App.css';
 
 //project components
-import ListItemButtons from './Components/ListItemButtons';
+import ListItem from './Components/ListItem/ListItem';
 
 class App extends Component {
   render() {
@@ -16,7 +16,7 @@ class App extends Component {
         <p className="App-intro">
           Big goals, small steps.
         </p>
-          <ListItemButtons/>
+          <ListItem/>
       </div>
     );
   }
