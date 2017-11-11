@@ -1,0 +1,9 @@
+.btn-complete {
+    color: rgb(33, 170, 33);
+    background-color:white;
+    border:3px rgb(33, 170, 33) solid;
+}
+.btn-complete:hover {
+    color: rgb(22, 110, 22);
+    border-color:rgb(22, 110, 22);
+}
