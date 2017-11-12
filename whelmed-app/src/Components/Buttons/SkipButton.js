@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
-import './SkipButton.css';
+import './Buttons.css';
 
 const SkipButton = (props) =>{
     return (

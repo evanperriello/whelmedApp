@@ -2,8 +2,8 @@ import React from 'react';
 import ListItem from '../ListItem/ListItem';
 import './List.css'
 const List = (props)=>{
-    const listItems = props.listItems.map((item)=>{
-        return <li  key={item}><ListItem item={item}/></li> 
+    const listItems = props.lists.map((item)=>{
+        return <li key={item.id}><ListItem text={item.text}/></li> 
     });
     return (
         <div className='list'>

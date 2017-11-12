@@ -22,12 +22,3 @@
   font-size: large;
 }
 
-.btn-circle {
-  border-radius:50%;
-  padding:3px 6px;
-  margin-right:5px;
-  vertical-align:30%;
-}
-.list-container {
-  display:flex;
-}

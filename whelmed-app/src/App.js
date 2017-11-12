@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import 'react-bootstrap';
-
 import './App.css';
 
 //project components
-import List from './Components/List/List';
-var sampleListItems = ['Pet the cat', 'Hug your wife', 'Code the app'];
+import ListCollection from './Components/ListCollection/ListCollection';
+var sampleLists = [{text: 'Pet the cat', id: 1}, {text: 'Hug your wife', id:2}, {text: 'Code the app', id: 3}];
 class App extends Component {
 
   render() {
@@ -17,9 +16,7 @@ class App extends Component {
         <p className="App-intro">
           Big goals, small steps.
         </p>
-        <div className="list-container">
-          <List listItems={sampleListItems} title='Things To Do 1' />
-        </div>
+        <ListCollection lists={sampleLists}/>
       </div>
     );
   }

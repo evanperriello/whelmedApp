@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
-import './CompleteButton.css';
+import './Buttons.css';
 
 const CompleteButton = (props) =>{
     return (

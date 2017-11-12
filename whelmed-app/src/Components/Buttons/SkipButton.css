@@ -1,9 +1,0 @@
-.btn-skip {
-    color: rgb(230, 175, 26);
-    background-color:white;
-    border:3px rgb(230, 175, 26) solid;
-}
-.btn-skip:hover {
-    color: rgb(175, 129, 12);
-    border-color:rgb(175, 129, 12);
-}

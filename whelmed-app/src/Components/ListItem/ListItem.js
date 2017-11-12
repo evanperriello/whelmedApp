@@ -5,7 +5,7 @@ import './ListItem.css';
 const ListItem = (props)=>{
     return (
         <div className='list-item'>
-            <div className='item-description'><p>{props.item}</p></div>
+            <div className='item-description'><p>{props.text}</p></div>
             <div className='item-controls'><ListItemButtons/></div>
         </div>
     );
