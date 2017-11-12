@@ -1,0 +1,7 @@
+.list-item-buttons {
+    display:inline;
+    flex-grow:1;
+}
+.list-item-buttons li {
+    display:inline;
+}

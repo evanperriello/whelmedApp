@@ -17,7 +17,9 @@ class App extends Component {
         <p className="App-intro">
           Big goals, small steps.
         </p>
-          <List listItems={sampleListItems} title={'Things To Do'} />
+        <div className="list-container">
+          <List listItems={sampleListItems} title='Things To Do 1' />
+        </div>
       </div>
     );
   }

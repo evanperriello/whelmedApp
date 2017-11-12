@@ -5,8 +5,8 @@ import './ListItem.css';
 const ListItem = (props)=>{
     return (
         <div className='list-item'>
-            <p>{props.item}</p>
-            <ListItemButtons/>
+            <div className='item-description'><p>{props.item}</p></div>
+            <div className='item-controls'><ListItemButtons/></div>
         </div>
     );
 }

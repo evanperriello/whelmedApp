@@ -28,3 +28,6 @@
   margin-right:5px;
   vertical-align:30%;
 }
+.list-container {
+  display:flex;
+}

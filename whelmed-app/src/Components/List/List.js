@@ -3,7 +3,7 @@ import ListItem from '../ListItem/ListItem';
 import './List.css'
 const List = (props)=>{
     const listItems = props.listItems.map((item)=>{
-        return <li><ListItem key={item} item={item}/></li> 
+        return <li  key={item}><ListItem item={item}/></li> 
     });
     return (
         <div className='list'>

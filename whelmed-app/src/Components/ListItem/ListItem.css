@@ -1,15 +1,24 @@
-.list-item-buttons {
-    display:inline;
-}
 .list-item p {
     display:inline;
     margin-right:20px;
     margin-bottom:0;
     font-size:1.5em;
     font-weight:600;
-    padding:0;
+    padding:0 10px;
+    
 }
 .list-item {
     border-radius:5px;
     border:2px rgb(208, 214, 219) solid;
+    margin: 5px 10px;
+    display:flex;
+
+}
+.list-item .item-description {
+    flex: 8;
+    text-align:left;
+}
+.list-item .item-controls {
+    flex:2;
+    min-width:102px;
 }
