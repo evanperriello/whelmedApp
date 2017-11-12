@@ -8,6 +8,18 @@
     border-color:rgb(22, 110, 22);
 }
 
+.btn-add {
+    color: rgb(31, 145, 238);
+    background-color:white;
+    font-size:1.5em;
+    border:none;
+    flex:1;
+}
+.btn-add:hover {
+    color: rgb(31, 62, 238);
+    border-color:rgb(31, 62, 238);
+}
+
 .btn-delete {
     color: rgb(201, 18, 18);
     font-size:2em;

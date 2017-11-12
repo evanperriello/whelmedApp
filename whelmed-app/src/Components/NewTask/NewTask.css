@@ -1,0 +1,15 @@
+.new-task-input {
+    border-radius:5px;
+    border:2px rgb(208, 214, 219) solid;
+    margin: 5px 10px;
+    height:45px;
+    display:flex;
+    font-size:1.2em;
+    font-weight:600;
+    background: none;
+    padding: 0 10px;
+}
+.new-task-input input {
+    border: none;
+    flex: 8;
+}
