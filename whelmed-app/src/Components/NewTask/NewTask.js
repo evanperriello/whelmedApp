@@ -1,14 +1,13 @@
 import React from 'react';
 import './NewTask.css';
-import {Glyphicon} from 'react-bootstrap';
+import AddButton from '../Buttons/AddButton';
+
 
 const NewTask = ()=>{
     return (
         <div class='new-task-input'>
             <input placeholder='Add a new item'/>
-            <button className='.btn btn-add'>
-                <Glyphicon glyph='plus'/>
-            </button>
+            <AddButton/>
         </div>
     );
 }

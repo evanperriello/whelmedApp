@@ -11,5 +11,6 @@
 }
 .new-task-input input {
     border: none;
+    background:none;
     flex: 8;
 }

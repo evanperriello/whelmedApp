@@ -5,7 +5,7 @@ import './App.css';
 //project components
 import ListCollection from './Components/ListCollection/ListCollection';
 
-var sampleLists = [{text: 'Pet the cat', id: 1}, {text: 'Hug your wife', id:2}, {text: 'Code the app', id: 3}];
+var sampleLists = [{text: 'Pet the cat', id: 1}, {text: 'Hug your wife', id:2}, {text: 'Code the app', id: 3}, {text: 'Make dinner.', id: 4}];
 
 class App extends Component {
 
