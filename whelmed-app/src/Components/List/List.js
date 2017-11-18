@@ -3,7 +3,7 @@ import ListItem from '../ListItem/ListItem';
 import NewTask from '../NewTask/NewTask';
 import './List.css';
 const List = (props)=>{
-    let listItems = props.lists.map((item)=>{
+    let listItems = props.listItems.map((item)=>{
         return <li key={item.id}><ListItem text={item.text}/></li> 
     });
     //use the 'show' prop to restrict the number of items that render for the mini list (for the full list, this will not exist)
