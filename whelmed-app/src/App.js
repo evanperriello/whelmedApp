@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import 'react-bootstrap';
 import './App.css';
+import AppHeader from './Components/AppHeader/AppHeader';
 
 //project components
 import ListCollection from './Components/ListCollection/ListCollection';
@@ -14,12 +15,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
-            <h1 className="App-title">whelmed</h1>
-          </header>
-          <p className="App-intro">
-            Big goals, small steps.
-          </p>
+          <AppHeader/>
           <Route path='/' render={
             ()=><ListCollection lists={sampleLists}/>
           }

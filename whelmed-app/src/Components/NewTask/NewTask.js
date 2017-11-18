@@ -5,7 +5,7 @@ import AddButton from '../Buttons/AddButton';
 
 const NewTask = ()=>{
     return (
-        <div class='new-task-input'>
+        <div className='new-task-input'>
             <input placeholder='Add a new item'/>
             <AddButton/>
         </div>
