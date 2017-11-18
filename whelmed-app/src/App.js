@@ -2,54 +2,12 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import 'react-bootstrap';
 import './App.css';
-import AppHeader from './Components/AppHeader/AppHeader';
 
 //project components
+import AppHeader from './Components/AppHeader/AppHeader';
 import ListCollection from './Components/ListCollection/ListCollection';
+import Store from './Store';
 
-var sampleLists = [
-    {
-    username: 'Evan',
-    userId: 'abc123', 
-    lists: [
-      {
-        ListId: 1,
-        title: 'Things to do 1',
-        daysStraight: '5',
-        numberDone: '75',
-        listItems: [{text: 'Pet the cat', id: 1}, {text: 'Hug your wife', id:2}, {text: 'Code the app', id: 3}, {text: 'Make dinner.', id: 4}]
-      },
-      {
-        ListId: 2,
-        title: 'Things to do 2',
-        daysStraight: '6',
-        numberDone: '20',
-        listItems: [{text: 'Feed the cat', id: 1}, {text: 'Kiss your wife', id:2}, {text: 'Code the app more', id: 3}, {text: 'Make dinner.', id: 4}]
-      }
-
-    ]
-  },
-  {
-    username: 'Evan2',
-    userId: '123abc', 
-    lists: [
-      {
-        ListId: 1,
-        title: 'Things to do 3',
-        daysStraight: '5',
-        numberDone: '75',
-        listItems: [{text: 'Pet the cat', id: 1}, {text: 'Hug your wife', id:2}, {text: 'Code the app', id: 3}, {text: 'Make dinner.', id: 4}]
-      },
-      {
-        ListId: 2,
-        title: 'Things to do 4',
-        daysStraight: '6',
-        numberDone: '20',
-        listItems: [{text: 'Feed the cat', id: 1}, {text: 'Kiss your wife', id:2}, {text: 'Code the app more', id: 3}, {text: 'Make dinner.', id: 4}]
-      }
-    ]
-  }
-];
 class App extends Component {
 
   render() {
@@ -61,12 +19,12 @@ class App extends Component {
             exact={true} 
             render={
               ()=>{
-              return (<ListCollection show={3} lists={sampleLists.find(user=> user.userId === '123abc').lists}/>);
+              return (<ListCollection show={3} lists={Store.find(user=> user.userId === '123abc').lists}/>);
             }}
           />
           <Route path='/:ListId' 
           render={
-            ({match})=><ListCollection lists={sampleLists[match.params.ListId]}/>
+            ({match})=><ListCollection lists={Store.find(user=> user.userId === '123abc').lists.find(list=>list.ListId===match.params.ListId)}/>
           }
         />
 
