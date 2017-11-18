@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import 'react-bootstrap';
 import './App.css';
 
@@ -11,15 +12,20 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">whelmed</h1>
-        </header>
-        <p className="App-intro">
-          Big goals, small steps.
-        </p>
-        <ListCollection lists={sampleLists}/>
-      </div>
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            <h1 className="App-title">whelmed</h1>
+          </header>
+          <p className="App-intro">
+            Big goals, small steps.
+          </p>
+          <Route path='/' render={
+            ()=><ListCollection lists={sampleLists}/>
+          }
+          />
+        </div>
+      </Router>
     );
   }
 }
