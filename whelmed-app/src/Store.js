@@ -17,7 +17,6 @@ const Store = [
         numberDone: '20',
         listItems: [{text: 'Feed the cat', id: 1}, {text: 'Kiss your wife', id:2}, {text: 'Code the app more', id: 3}, {text: 'Make dinner.', id: 4}]
       }
-
     ]
   },
   {

@@ -1,11 +1,12 @@
 import Firebase from 'firebase';
   const config = {
-    apiKey: "api-key",
+    apiKey: process.env.REACT_APP_API_KEY,
     authDomain: "whelmed-app.firebaseapp.com",
     databaseURL: "https://whelmed-app.firebaseio.com",
     projectId: "whelmed-app",
     storageBucket: "",
-    messagingSenderId: "sender-id"
+    messagingSenderId: process.env.MESSAGING_SENDER_ID
   };
-  firebase.initializeApp(config);
-</script>
+  Firebase.initializeApp(config);
+
+  export default Firebase;
