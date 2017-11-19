@@ -29,7 +29,6 @@ class App extends Component {
     });
   }
   render() {
-    console.log(this.state.userData);
     return (
       <Router>
         <div className="App">

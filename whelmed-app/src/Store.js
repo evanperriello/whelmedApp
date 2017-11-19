@@ -8,14 +8,14 @@ const Store = [
         title: 'Things to do 1',
         daysStraight: '5',
         numberDone: '75',
-        listItems: [{text: 'Pet the cat', id: 1}, {text: 'Hug your wife', id:2}, {text: 'Code the app', id: 3}, {text: 'Make dinner.', id: 4}]
+        listItems: ['Pet the cat', 'Hug your wife','Code the app','Make dinner.']
       },
       {
         ListId: 2,
         title: 'Things to do 2',
         daysStraight: '6',
         numberDone: '20',
-        listItems: [{text: 'Feed the cat', id: 1}, {text: 'Kiss your wife', id:2}, {text: 'Code the app more', id: 3}, {text: 'Make dinner.', id: 4}]
+        listItems: ['Feed the cat', 'Kiss your wife', 'Code the app more','Make dinner.']
       }
     ]
   },
@@ -28,14 +28,14 @@ const Store = [
         title: 'Things to do 3',
         daysStraight: '5',
         numberDone: '75',
-        listItems: [{text: 'Pet the cat', id: 1}, {text: 'Hug your wife', id:2}, {text: 'Code the app', id: 3}, {text: 'Make dinner.', id: 4}]
+        listItems: ['Pet the cat', 'Hug your wife', 'Code the app', 'Make dinner.']
       },
       {
         ListId: 2,
         title: 'Things to do 4',
         daysStraight: '6',
         numberDone: '20',
-        listItems: [{text: 'Feed the cat', id: 1}, {text: 'Kiss your wife', id:2}, {text: 'Code the app more', id: 3}, {text: 'Make dinner.', id: 4}]
+        listItems: ['Feed the cat', 'Kiss your wife', 'Code the app more', 'Make dinner.']
       }
     ]
   }
