@@ -5,17 +5,7 @@ const Store = [
     lists: [
       {
         ListId: 1,
-        title: 'Things to do 1',
-        daysStraight: '5',
-        numberDone: '75',
-        listItems: ['Pet the cat', 'Hug your wife','Code the app','Make dinner.']
-      },
-      {
-        ListId: 2,
-        title: 'Things to do 2',
-        daysStraight: '6',
-        numberDone: '20',
-        listItems: ['Feed the cat', 'Kiss your wife', 'Code the app more','Make dinner.']
+        listItems: ['']
       }
     ]
   },
