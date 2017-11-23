@@ -4,7 +4,7 @@ const AppHeader = (props)=>{
 return (
     <div>
         <header className="App-header">
-            <h1 className="App-title">whelmed</h1>
+            <img className="App-logo" src='./images/whelmedLogo.png' alt='Whelmed logo'/>
         </header>
         <p className="App-intro">
         Big goals, small steps.

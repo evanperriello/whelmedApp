@@ -16,6 +16,7 @@ class App extends Component {
     this.state = {
       userData: Store[0]
     };
+    this.onItemSubmit = this.onItemSubmit.bind(this);
   }
 
   componentDidMount(){
@@ -28,6 +29,9 @@ class App extends Component {
         });
     });
   }
+  onItemSubmit(word){
+    console.log(word);
+  }
   render() {
     return (
       <Router>
@@ -37,12 +41,12 @@ class App extends Component {
             exact={true} 
             render={
               ()=>{
-              return (<ListCollection show={3} lists={this.state.userData.lists}/>);
+              return (<ListCollection show={3} lists={this.state.userData.lists} onItemSubmit={this.onItemSubmit}/>);
             }}
           />
           <Route path='/:ListId' 
           render={
-            ({match})=><ListCollection lists={Store.find(user=> user.userId === '123abc').lists}/>
+            ({match})=><ListCollection lists={Store.find(user=> user.userId === '123abc').lists} onItemSubmit={this.onItemSubmit}/>
           }
         />
 

@@ -4,7 +4,7 @@ import {Glyphicon} from 'react-bootstrap';
 
 const AddButton = (props) =>{
     return (
-        <button className='.btn btn-add'>
+        <button type='submit' className='.btn btn-add'>
             <Glyphicon glyph='plus'/>
         </button>
     );

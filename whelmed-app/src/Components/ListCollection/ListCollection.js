@@ -5,7 +5,7 @@ import './ListCollection.css';
 const ListCollection = (props)=>{
     let lists = props.lists.map((list, index)=>{
         let {listItems, title, numberDone, daysStraight} = list;
-            return (<List key={`list ${index}`} listItems={listItems} title={title} numberDone={numberDone} daysStraight={daysStraight} show={props.show} />);
+            return (<List key={`list ${index}`} listItems={listItems} title={title} numberDone={numberDone} daysStraight={daysStraight} show={props.show} onItemSubmit={props.onItemSubmit}/>);
     })
     return (
         <div className="list-container">

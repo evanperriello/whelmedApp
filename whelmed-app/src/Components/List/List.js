@@ -16,7 +16,7 @@ const List = (props)=>{
             <p className='number-done'>{props.numberDone} steps completed</p>
             <p className='days-straight'>{props.daysStraight} days straight</p>
             <ul>{listItems}
-                <NewTask/>
+                <NewTask onItemSubmit={props.onItemSubmit}/>
             </ul>
             <p><a href='#'>see all</a></p>
         </div>
