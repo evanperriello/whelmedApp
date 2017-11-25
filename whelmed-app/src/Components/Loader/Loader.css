@@ -1,0 +1,15 @@
+.loader {
+    margin:60px auto;
+    height: 100px;
+    width: 100px;
+    animation: spin ease-in-out 2s infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform:rotate(0deg);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+}

@@ -9,6 +9,7 @@ import AppHeader from './Components/AppHeader/AppHeader';
 import ListCollection from './Components/ListCollection/ListCollection';
 import Store from './Store';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
+import Loader from './Components/Loader/Loader';
 
 
 class App extends Component {
@@ -41,7 +42,7 @@ class App extends Component {
       return (
           <div className="App">
             <AppHeader/>
-            <h1>Loading...</h1>
+            <Loader/>
           </div>
       );
     }
