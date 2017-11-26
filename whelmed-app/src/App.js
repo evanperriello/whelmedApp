@@ -27,26 +27,28 @@ class App extends Component {
   }
 
   componentDidMount(){
-  //sample userId for testing db connection. make dynamic on auth later.
-  let userId = 'abc123';
-  //grab a reference to the specified user
-  const userRef = firebase.database().ref().child(userId);
-  userRef.on('value', snap=>{
-      this.setState({
-        userData: snap.val(),
-        loading:false,
-        userId: userId
-      });
-  });
-    var listsRef = firebase.database().ref('lists');
-    listsRef.on('value', snapshot=>{
-      snapshot.forEach(childSnapshot=>{
-        let userLists = this.state.userLists;
-        userLists[childSnapshot.key] = childSnapshot.val();
-        this.setState({userLists: userLists});
-      });
+    //sample userId for testing db connection. make dynamic on auth later.
+    let userId = 'abc123';
+    //grab a reference to the specified user
+    const userRef = firebase.database().ref().child(userId);
+    userRef.on('value', snap=>{
+        this.setState({
+          userData: snap.val(),
+          loading:false,
+          userId: userId
+        });
+        //loop over the lists associated with the user and populate the userLists object from them.
+        var listKeys = Object.keys(snap.val().lists);
+        listKeys.forEach((key)=>{
+          var listRef= firebase.database().ref('lists').child(key);
+          listRef.on('value', childSnapshot=>{
+            let userLists = this.state.userLists;
+            userLists[childSnapshot.key] = childSnapshot.val();
+            this.setState({userLists: userLists});
+            console.log(this.state.userLists);
+          });
+        })
     });
-
   }
   onItemSubmit(word, listId){
     let listItems = this.state.userLists.listItems;
