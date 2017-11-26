@@ -13,15 +13,15 @@ class NewTask extends Component {
     onInputChange (event){
         this.setState({text: event.target.value})
     }
-    onItemSubmit(e){
-        e.preventDefault();
-        let newTerm = this.state.text;
-        this.props.onItemSubmit(newTerm);
+    onItemSubmit(event){
+        event.preventDefault();
+        this.props.onItemSubmit(this.state.text, 1);
         this.setState({text: ''});
     }
     render(){
         return (
-            <form className='new-task-input' onSubmit={this.onItemSubmit}>
+            <form className='new-task-input' 
+                onSubmit={this.onItemSubmit}>
                 <input 
                     placeholder='Add a new item' 
                     onChange={this.onInputChange} 

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+import firebaseui from 'firebaseui';
 import 'react-bootstrap';
 import './App.css';
-import Firebase from './Firebase';
+import firebase from './firebase';
+
 
 //project components
 import AppHeader from './Components/AppHeader/AppHeader';
@@ -17,24 +19,28 @@ class App extends Component {
     super();
     this.state = {
       userData: Store[0],
-      loading:true
+      loading:true,
+      userId: null
     };
     this.onItemSubmit = this.onItemSubmit.bind(this);
   }
 
   componentDidMount(){
   //sample userId for testing db connection. make dynamic on auth later.
-  const userId = 'abc123'
-  const userRef = Firebase.database().ref().child(userId);
+  let userId = 'abc123'
+  const userRef = firebase.database().ref().child(userId);
   userRef.on('value', snap=>{
       this.setState({
         userData: snap.val(),
-        loading:false
+        loading:false,
+        userId: userId
       });
   });
   }
-  onItemSubmit(word){
-    console.log(word);
+  onItemSubmit(word, listId){
+    let listItems = this.state.userData.lists[listId].listItems;
+    let newList = [...listItems, word];
+    firebase.database().ref(this.state.userId + '/lists/' + listId + '/listItems/').set(newList);
   }
   render() {
     //render the loading screen until the db call goes through by the 'loading' state
