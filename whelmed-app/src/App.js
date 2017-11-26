@@ -20,14 +20,16 @@ class App extends Component {
     this.state = {
       userData: Store[0],
       loading:true,
-      userId: null
+      userId: null,
+      userLists: {}
     };
     this.onItemSubmit = this.onItemSubmit.bind(this);
   }
 
   componentDidMount(){
   //sample userId for testing db connection. make dynamic on auth later.
-  let userId = 'abc123'
+  let userId = 'abc123';
+  //grab a reference to the specified user
   const userRef = firebase.database().ref().child(userId);
   userRef.on('value', snap=>{
       this.setState({
@@ -36,9 +38,18 @@ class App extends Component {
         userId: userId
       });
   });
+    var listsRef = firebase.database().ref('lists');
+    listsRef.on('value', snapshot=>{
+      snapshot.forEach(childSnapshot=>{
+        let userLists = this.state.userLists;
+        userLists[childSnapshot.key] = childSnapshot.val();
+        this.setState({userLists: userLists});
+      });
+    });
+
   }
   onItemSubmit(word, listId){
-    let listItems = this.state.userData.lists[listId].listItems;
+    let listItems = this.state.userLists.listItems;
     let newList = [...listItems, word];
     firebase.database().ref(this.state.userId + '/lists/' + listId + '/listItems/').set(newList);
   }
@@ -62,7 +73,7 @@ class App extends Component {
               ()=>{
               return (<ListCollection 
                 show={3} 
-                lists={this.state.userData.lists} 
+                lists={this.state.userLists} 
                 onItemSubmit={this.onItemSubmit}/>);
             }}
           />
