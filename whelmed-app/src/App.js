@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import firebaseui from 'firebaseui';
 import 'react-bootstrap';
 import './App.css';
-import firebase from './firebase';
+import firebase, {auth, provider} from './firebase';
 
 
 //project components
@@ -20,10 +20,12 @@ class App extends Component {
     this.state = {
       userData: Store[0],
       loading:true,
-      userId: null,
+      user: null,
       userLists: {}
     };
     this.onItemSubmit = this.onItemSubmit.bind(this);
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   componentDidMount(){
@@ -45,10 +47,25 @@ class App extends Component {
             let userLists = this.state.userLists;
             userLists[childSnapshot.key] = childSnapshot.val();
             this.setState({userLists: userLists});
-            console.log(this.state.userLists);
           });
         })
     });
+  }
+  login(){  
+    auth.signInWithPopup(provider) 
+    .then((result) => {
+      const user = result.user;
+      this.setState({
+        user
+      });
+    });
+  }
+  logout(){
+    auth.signOut().then(
+      ()=>{
+        this.setState({user:null});
+      }
+    );
   }
   onItemSubmit(word, listId){
     let listItems = this.state.userLists.listItems;
@@ -56,11 +73,11 @@ class App extends Component {
     firebase.database().ref(this.state.userId + '/lists/' + listId + '/listItems/').set(newList);
   }
   render() {
-    //render the loading screen until the db call goes through by the 'loading' state
+   // render the loading screen until the db call goes through by the 'loading' state
     if (this.state.loading) {
       return (
           <div className="App">
-            <AppHeader/>
+            <AppHeader user={this.state.user} login={this.login} logout={this.logout}/>
             <Loader/>
           </div>
       );
@@ -68,7 +85,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <AppHeader/>
+          <AppHeader user={this.state.user} login={this.login} logout={this.logout}/>
           <Route path='/' 
             exact={true} 
             render={

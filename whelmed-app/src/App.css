@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-
+  margin: 0 auto;
 }
 
 .App-header {
@@ -11,6 +11,10 @@
   height: 150px;
   padding: 20px;
   color: white;
+}
+.App-header button {
+  background: rgb(118, 144, 201);
+  margin-left:100px;
 }
 
 .App-title {
