@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import firebaseui from 'firebaseui';
-import 'react-bootstrap';
 import './App.css';
 import firebase, {auth, provider} from './firebase';
 
@@ -13,6 +12,7 @@ import Store from './Store';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Loader from './Components/Loader/Loader';
 
+//project functions
 
 class App extends Component {
   constructor() {
@@ -26,8 +26,8 @@ class App extends Component {
     this.onItemSubmit = this.onItemSubmit.bind(this);
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
+    this.populateUserLists = this.populateUserLists.bind(this);
   }
-
   componentDidMount(){
     //sample userId for testing db connection. make dynamic on auth later.
     let userId = 'abc123';
@@ -36,19 +36,10 @@ class App extends Component {
     userRef.on('value', snap=>{
         this.setState({
           userData: snap.val(),
-          loading:false,
+          loading:!this.state.loading,
           userId: userId
         });
-        //loop over the lists associated with the user and populate the userLists object from them.
-        var listKeys = Object.keys(snap.val().lists);
-        listKeys.forEach((key)=>{
-          var listRef= firebase.database().ref('lists').child(key);
-          listRef.on('value', childSnapshot=>{
-            let userLists = this.state.userLists;
-            userLists[childSnapshot.key] = childSnapshot.val();
-            this.setState({userLists: userLists});
-          });
-        })
+        this.populateUserLists(snap);
     });
   }
   login(){  
@@ -71,6 +62,18 @@ class App extends Component {
     let listItems = this.state.userLists.listItems;
     let newList = [...listItems, word];
     firebase.database().ref(this.state.userId + '/lists/' + listId + '/listItems/').set(newList);
+  }
+  populateUserLists(snap){
+    //loop over the lists associated with the user and populate the userLists object from them.
+    var listKeys = Object.keys(snap.val().lists);
+    listKeys.forEach((key)=>{
+      var listRef= firebase.database().ref('lists').child(key);
+      listRef.on('value', childSnapshot=>{
+        let userLists = this.state.userLists;
+        userLists[childSnapshot.key] = childSnapshot.val();
+        this.setState({userLists: userLists});
+      });
+    })
   }
   render() {
    // render the loading screen until the db call goes through by the 'loading' state

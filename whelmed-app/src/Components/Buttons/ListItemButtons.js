@@ -1,16 +1,14 @@
 import React from 'react';
-import CompleteButton from '../Buttons/CompleteButton';
-import SkipButton from '../Buttons/SkipButton';
-import DeleteButton from '../Buttons/DeleteButton';
+import Button from './Button';
 import './ListItemButtons.css';
 
 
 const ListItemButtons = (props)=>{
     return (
             <ul className='list-item-buttons'>
-                <li><CompleteButton/></li>
-                <li><SkipButton/></li>
-                <li><DeleteButton/></li>
+                <li><Button type='complete'/></li>
+                <li><Button type='skip'/></li>
+                <li><Button type='delete'/></li>
             </ul>
     );
 }

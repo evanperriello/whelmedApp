@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './NewTask.css';
-import AddButton from '../Buttons/AddButton';
+import Button from '../Buttons/Button';
 
 //This component rendered by List.js
 class NewTask extends Component {
@@ -26,7 +26,7 @@ class NewTask extends Component {
                     placeholder='Add a new item' 
                     onChange={this.onInputChange} 
                     value={this.state.text}/>
-                <AddButton/>
+                <Button type='add'/>
             </form>
         );
     }
