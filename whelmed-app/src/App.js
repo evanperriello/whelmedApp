@@ -11,7 +11,7 @@ import ListCollection from './Components/ListCollection/ListCollection';
 import Store from './Store';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Loader from './Components/Loader/Loader';
-
+import Middleware from './Middleware/Middleware';
 //project functions
 
 class App extends Component {
@@ -31,16 +31,8 @@ class App extends Component {
   componentDidMount(){
     //sample userId for testing db connection. make dynamic on auth later.
     let userId = 'abc123';
-    //grab a reference to the specified user
-    const userRef = firebase.database().ref().child(userId);
-    userRef.on('value', snap=>{
-        this.setState({
-          userData: snap.val(),
-          loading:!this.state.loading,
-          userId: userId
-        });
-        this.populateUserLists(snap);
-    });
+    //have to use call to make sure that 
+    Middleware.grabUserData.call(this, userId);
   }
   login(){  
     auth.signInWithPopup(provider) 
@@ -61,7 +53,7 @@ class App extends Component {
   onItemSubmit(word, listId){
     let listItems = this.state.userLists.listItems;
     let newList = [...listItems, word];
-    firebase.database().ref(this.state.userId + '/lists/' + listId + '/listItems/').set(newList);
+    firebase.database().ref(`${this.state.userId}/lists/${listId}/listItems/`).set(newList);
   }
   populateUserLists(snap){
     //loop over the lists associated with the user and populate the userLists object from them.
