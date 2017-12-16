@@ -26,12 +26,11 @@ class App extends Component {
     this.onItemSubmit = this.onItemSubmit.bind(this);
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
-    this.populateUserLists = this.populateUserLists.bind(this);
   }
   componentDidMount(){
-    //sample userId for testing db connection. make dynamic on auth later.
+    //sample userId for testing db connection. make dynamic on auth.
     let userId = 'abc123';
-    //have to use call to make sure that 
+    //have to use call to make sure that 'this' is the current context.
     Middleware.grabUserData.call(this, userId);
   }
   login(){  
@@ -54,18 +53,6 @@ class App extends Component {
     let listItems = this.state.userLists.listItems;
     let newList = [...listItems, word];
     firebase.database().ref(`${this.state.userId}/lists/${listId}/listItems/`).set(newList);
-  }
-  populateUserLists(snap){
-    //loop over the lists associated with the user and populate the userLists object from them.
-    var listKeys = Object.keys(snap.val().lists);
-    listKeys.forEach((key)=>{
-      var listRef= firebase.database().ref('lists').child(key);
-      listRef.on('value', childSnapshot=>{
-        let userLists = this.state.userLists;
-        userLists[childSnapshot.key] = childSnapshot.val();
-        this.setState({userLists: userLists});
-      });
-    })
   }
   render() {
    // render the loading screen until the db call goes through by the 'loading' state
