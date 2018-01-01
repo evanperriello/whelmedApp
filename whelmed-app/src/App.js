@@ -11,6 +11,7 @@ import ListCollection from './Components/ListCollection/ListCollection';
 import Store from './Store';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Loader from './Components/Loader/Loader';
+import SingleList from './Components/SingleList/SingleList';
 import Middleware from './Middleware/Middleware';
 
 class App extends Component {
@@ -74,24 +75,23 @@ class App extends Component {
               return (<ListCollection 
                 show={3} 
                 lists={this.state.userLists} 
-                onItemSubmit={this.onItemSubmit}/>);
+                onItemSubmit={this.onItemSubmit}/>
+              );
             }}
           />
-          {/*Even though there's only one list shown in the ListId path below, it has to be served up as an array, as ListCollection uses .map.*/}
           <Route path='/:ListId' 
             render={
-              ({match})=>{
-                if (this.state.userData.lists[match.params.ListId]){
-                  return (
-                    <ListCollection
-                      lists={[this.state.userData.lists[match.params.ListId]]} 
-                      onItemSubmit={this.onItemSubmit}
-                    />);
-                }
-                return <ErrorPage/>
+              (props)=>{
+                return (<SingleList
+                  match={props.match}
+                  userData={this.state.userData} 
+                  userLists={this.state.userLists}
+                  onItemSubmit={this.onItemSubmit}/>
+                );
+              }
             }
-            }
-        />
+          
+          />
 
         </div>
       </Router>

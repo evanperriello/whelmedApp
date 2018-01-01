@@ -1,6 +1,7 @@
 import React from 'react';
 import ListItem from '../ListItem/ListItem';
 import NewTask from '../NewTask/NewTask';
+import {Link} from 'react-router-dom';
 import './List.css';
 const List = (props)=>{
     let listItems = [];
@@ -13,6 +14,13 @@ const List = (props)=>{
     if (props.show){
         listItems = listItems.slice(0, props.show);
     }
+    //the bottomLink prop is passed in by the singleList component to change the "see all" link to a home link
+    let bottomLinkDestination = `/${props.listKey}`;
+    let bottomLinkText = 'see all tasks';
+    if (props.bottomLink){
+        bottomLinkDestination = '/';
+        bottomLinkText = 'see all lists';
+    }
     return (
         <div className='list'>
             <h2 className='list-title'>{props.title}</h2>
@@ -21,7 +29,7 @@ const List = (props)=>{
             <ul>{listItems}
                 <NewTask listKey={props.listKey} onItemSubmit={props.onItemSubmit}/>
             </ul>
-            <p><a href='#'>see all</a></p>
+            <p>{<Link to={bottomLinkDestination}>{bottomLinkText}</Link>}</p>
         </div>
     );
 
