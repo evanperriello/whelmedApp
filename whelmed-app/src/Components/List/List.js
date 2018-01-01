@@ -19,7 +19,7 @@ const List = (props)=>{
             <p className='number-done'>{props.numberDone} steps completed</p>
             <p className='days-straight'>{props.daysStraight} days straight</p>
             <ul>{listItems}
-                <NewTask onItemSubmit={props.onItemSubmit}/>
+                <NewTask listKey={props.listKey} onItemSubmit={props.onItemSubmit}/>
             </ul>
             <p><a href='#'>see all</a></p>
         </div>

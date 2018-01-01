@@ -9,7 +9,7 @@ const ListCollection = (props)=>{
     for (var listKey in givenLists){
         if (givenLists.hasOwnProperty(listKey)){
             let {listItems, title, numberDone, daysStraight} = givenLists[listKey];
-            lists.push(<List key={listKey} listItems={listItems} title={title} numberDone={numberDone} daysStraight={daysStraight} show={props.show} onItemSubmit={props.onItemSubmit}/>);
+            lists.push(<List key={listKey} listKey={listKey} listItems={listItems} title={title} numberDone={numberDone} daysStraight={daysStraight} show={props.show} onItemSubmit={props.onItemSubmit}/>);
         }
     }
     return (

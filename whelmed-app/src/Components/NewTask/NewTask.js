@@ -15,7 +15,8 @@ class NewTask extends Component {
     }
     onItemSubmit(event){
         event.preventDefault();
-        this.props.onItemSubmit(this.state.text, 1);
+        console.log(this.props.listKey);
+        this.props.onItemSubmit(this.state.text, this.props.listKey);
         this.setState({text: ''});
     }
     render(){

@@ -12,7 +12,6 @@ import Store from './Store';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Loader from './Components/Loader/Loader';
 import Middleware from './Middleware/Middleware';
-//project functions
 
 class App extends Component {
   constructor() {
@@ -50,9 +49,9 @@ class App extends Component {
     );
   }
   onItemSubmit(word, listId){
-    let listItems = this.state.userLists.listItems;
+    let listItems = this.state.userLists[listId].listItems;
     let newList = [...listItems, word];
-    firebase.database().ref(`${this.state.userId}/lists/${listId}/listItems/`).set(newList);
+    firebase.database().ref(`lists/${listId}/listItems/`).set(newList);
   }
   render() {
    // render the loading screen until the db call goes through by the 'loading' state
