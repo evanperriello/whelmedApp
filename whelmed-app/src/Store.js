@@ -1,5 +1,5 @@
 const Store = [
-    {
+  {
     username: 'Evan',
     userId: 'abc123', 
     lists: [

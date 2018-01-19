@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
-import firebaseui from 'firebaseui';
 import './App.css';
 import firebase, {auth, provider} from './firebase';
 
@@ -30,6 +29,11 @@ class App extends Component {
   componentDidMount(){
     //sample userId for testing db connection. make dynamic on auth.
     let userId = 'abc123';
+    auth.onAuthStateChanged((user)=>{
+      if (user){
+        this.setState({user});
+      }
+    });
     //have to use call to make sure that 'this' is the current context.
     Middleware.grabUserData.call(this, userId);
   }

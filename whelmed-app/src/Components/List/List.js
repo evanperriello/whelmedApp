@@ -14,13 +14,14 @@ const List = (props)=>{
     if (props.show){
         listItems = listItems.slice(0, props.show);
     }
-    //the bottomLink prop is passed in by the singleList component to change the "see all" link to a home link
+    //the bottomLink prop is passed in by the singleList component to change the "see all" link to a home link. By default, this is set to link to a single list.
     let bottomLinkDestination = `/${props.listKey}`;
     let bottomLinkText = 'see all tasks';
     if (props.bottomLink){
         bottomLinkDestination = '/';
         bottomLinkText = 'see all lists';
     }
+    
     return (
         <div className='list'>
             <h2 className='list-title'>{props.title}</h2>

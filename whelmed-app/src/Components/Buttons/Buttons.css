@@ -1,52 +1,42 @@
-.btn-complete {
-    color: rgb(33, 170, 33);
+.btn-complete, .btn-add, .btn-delete, .btn-skip {
+    color:none;
     background-color:white;
-    border:3px rgb(33, 170, 33) solid;
+    border:none;
+    background-image: url('../../images/sprites.png');
+    background-repeat: no-repeat; 
+    height:29px;
+    width:29px;
+    padding:0;
+    margin:6px 2px;
+
+
+}
+.btn-complete:hover, .btn-add:hover, .btn-delete:hover, .btn-skip:hover {
+    cursor:pointer;
+}
+.btn-complete {
+    background-position: 0 0 ;
 }
 .btn-complete:hover {
-    color: rgb(22, 110, 22);
-    border-color:rgb(22, 110, 22);
+    background-position: 0 -28px;
 }
-
 .btn-add {
-    color: rgb(31, 145, 238);
-    background:none;
-    font-size:1.5em;
-    border:none;
-    flex:1;
+    background-position:-90px 0;
 }
 .btn-add:hover {
-    color: rgb(31, 62, 238);
-    border-color:rgb(31, 62, 238);
+    background-position:-90px -28px;
 }
 
 .btn-delete {
-    color: rgb(201, 18, 18);
-    font-size:2em;
-    font-weight:600;
-    background:none;
-    border:none;
-    margin-left:-3px;
-    padding:0 6px;
-
+    background-position:-32px 0;
 }
 .btn-delete:hover {
-    color: rgb(155, 16, 16);
+    background-position:-32px -28px;
 }
 
 .btn-skip {
-    color: rgb(230, 175, 26);
-    background-color:white;
-    border:3px rgb(230, 175, 26) solid;
+    background-position:-61px 0;
 }
 .btn-skip:hover {
-    color: rgb(175, 129, 12);
-    border-color:rgb(175, 129, 12);
+    background-position:-61px -28px;
 }
-.btn-circle {
-    border-radius:50%;
-    display:inline;
-    padding:3px 6px;
-    margin-right:5px;
-    vertical-align:30%;
-  }
