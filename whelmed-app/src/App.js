@@ -28,14 +28,19 @@ class App extends Component {
   }
   componentDidMount(){
     //sample userId for testing db connection. make dynamic on auth.
-    let userId = 'abc123';
+    var userId = this.state.user || 'abc123';
+    //have to use call to make sure that 'this' is the current context.
+    Middleware.grabUserData.call(this, userId);
     auth.onAuthStateChanged((user)=>{
       if (user){
         this.setState({user});
+        userId = user.uid;
+        //Have to check whether user exists in firebase already and, if not, create a new listing with blank data structured properly
+        //Middleware.grabUserData.call(this, userId);
       }
     });
-    //have to use call to make sure that 'this' is the current context.
-    Middleware.grabUserData.call(this, userId);
+    
+
   }
   login(){  
     auth.signInWithPopup(provider) 

@@ -1,0 +1,18 @@
+CSS
+-Improve styling of login/logout button
+-Improve header styling
+-Add whelmed logo to sprite
+-Make lists widths more controlled
+-Make them overflow on mobile
+
+Logic
+    -Hook up the authentication uid to the userId variable and make it so that firebase generates new records based on that uid
+    -Hook up the completed button
+        -change class of completed task (grey and strikethrough)
+        -move completed tasks to bottom of the list
+        -create refresh button
+    -Hook up skip button
+    -Hook up delete button
+    -Hook up steps counter
+    -Hook up days straight counter
+-
